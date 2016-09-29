@@ -1,4 +1,7 @@
-﻿app.controller('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
+﻿var app = angular.module('appCar');
+
+var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
+//appCar.controller('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
     var vm = this;
 
     $scope.selectedYear = '';
@@ -57,5 +60,5 @@
         });
     };
 
-
+    app.controller('carController', carController);
 }]);

@@ -1,6 +1,10 @@
-﻿var baseUrl = 'http://aarrigucci-carfinder.azurewebsites.net';
+﻿
 
-app.service('svcAppCar', ['$http', function ($http) {
+var baseUrl = 'http://aarrigucci-carfinder.azurewebsites.net';
+var app = angular.module('appCar');
+
+var 
+//appCar.service('svcAppCar', ['$http', function ($http) {
     this.HCLYears = function () {
         return $http.get(baseUrl + '/api/Cars/Years')
             .then(function (response) { return response.data; });
