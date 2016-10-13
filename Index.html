@@ -7,10 +7,92 @@
 </head>
 <body>
 
-<div ng-app="app">
+<div ng-app="appCar">
         <div ng-controller="ctrAppCar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select ng-model="selectedYear" ng-options="year for year in years" ng-change="getMakes()" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select ng-model="selectedMake" ng-options="make for make in makes" ng-disabled="selectedYear==''" ng-change="getModels()" class="form-control"><option value="" disabled selected ng-hide="selectedMake">Select a make...</option></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select ng-model="selectedModel" ng-options="model for model in models" ng-disabled="selectedMake==''" ng-change="getTrims()" class="form-control"><option value="" disabled selected ng-hide="selectedModel">Select a model</option></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select ng-model="selectedTrim" ng-options="trim for trim in trims" ng-disabled="selectedModel==''" class="form-control"><option value="" disabled selected ng-hide="selectedTrim">Select a trim</option></select>
+                            </div>
+                        </div><br /><br />
+                        <div class="row">
+                            <div class="col-md-12">
+<!--                                 <button class="btn btn-info" ng-click="getCars()">Get Car</button><br />           
+ -->     
+                                <button class="btn btn-info" ng-click="getaCar()">Get Car</button><br />
+                            </div>
+                        </div>
+                        <p style="font-size:20px; color:black">{{selectedYear + " " + selectedMake  + " " + selectedModel   + " " + selectedTrim}} </p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-9">
+                                    <img src="{{car.Image}}" width="800" height="600" class="img-responsive" style="border-color:black" />
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- <div style="color:black"><strong>{{car.Recalls.Message}}</strong></div> -->
+                                    <div style="color:black"><strong>{{car.Car.body_style}}</strong></div>
+                                    <div style="color:black"><strong>{{car.Recalls.Count}}</strong></div>
+                                    <div style="color:black"><strong>{{car.Recalls.Message}}</strong></div>
+                                    <div style="color:black"><strong>{{recallMessage}}</strong></div>
+
+                                        <!-- <div ng-repeat="result in car.Recalls.Results" style="color:black">
+
+                                            <h3>{{result.Component}}</h3>
+                                            <div><strong>Summary: </strong>{{result.Summary}}</div>
+                                            <div><strong>Consequence: </strong> {{result.Conequence}}</div>
+                                            <div><strong>Remedy: </strong>{{result.Remedy}}</div>
+                                            <div><strong>Notes: </strong>{{result.Notes}}</div>
+                                        </div> -->
+
+                                        <!-- <div ng-repeat="result in recallResults" style="color:black">
+
+                                            <h3>{{result.Component}}</h3>
+                                            <div><strong>Summary: </strong>{{result.Summary}}</div>
+                                            <div><strong>Consequence: </strong> {{result.Conequence}}</div>
+                                            <div><strong>Remedy: </strong>{{result.Remedy}}</div>
+                                            <div><strong>Notes: </strong>{{result.Notes}}</div>
+                                        </div> -->
+
+                                        <!-- <div style="color:black"><strong>{{recallResults}}</strong></div> -->
+                                        <div style="color:black"><strong>{{recallResults.Message}}</strong></div>
+                                        <div style="color:black"><strong>{{recallResults.Results[0].Manufacturer}}</strong></div>
+                                        <!-- <div style="color:black"><strong>{{recallResults[1]}}</strong></div> -->
+                                        <div ng-repeat="result in recallResults.Results" style="color:black">
+
+                                            <h3>{{result.Component}}</h3>
+                                            <div><strong>Summary: </strong>{{result.Summary}}</div>
+                                            <div><strong>Consequence: </strong> {{result.Conequence}}</div>
+                                            <div><strong>Remedy: </strong>{{result.Remedy}}</div>
+                                            <div><strong>Notes: </strong>{{result.Notes}}</div>
+                                        </div>
+                                </div>                                    
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
     <!--<div ng-app="appCar">
         <div ng-controller="ctrAppCar">
             <div class="container">
@@ -132,15 +214,14 @@
     <script src="Scripts/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js">    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js">  
-    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>  
+    <script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     
-
     <script src="Car.js"></script>
     <script src="Controllers/CarController.js"></script>
-    <script src="Services/CarServices.js"></script>
+    <script src="Services/CarServices.js"></script> 
     <!--<script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>-->
     <!--<script src="Scripts/ui-bootstrap-2.1.4.min.js"></script>-->
     <script src="Scripts/ui-bootstrap-2.1.4.js"></script>

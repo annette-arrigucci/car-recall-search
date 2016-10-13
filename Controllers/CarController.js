@@ -1,7 +1,4 @@
-﻿var app = angular.module('appCar');
-
-var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
-//appCar.controller('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
+﻿app.controller('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcAppCar) {
     var vm = this;
 
     $scope.selectedYear = '';
@@ -9,12 +6,15 @@ var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcA
     $scope.selectedModel = '';
     $scope.selectedTrim = '';
     $scope.carImage = '';
+    $scope.car = [];
+    $scope.recallResults = [];
+    $scope.recallMessage = '';
 
     $scope.years = [];
     $scope.makes = [];
     $scope.models = [];
     $scope.trims = [];
-    $scope.cars = '';
+    // $scope.cars = 'Acura';
 
 
     $scope.getYears = function () {
@@ -31,7 +31,7 @@ var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcA
             $scope.makes = data;
         });
         $scope.models.length = 0;
-        $scope.getCars();
+        // $scope.getCars();
     };
 
     $scope.getModels = function () {
@@ -39,7 +39,7 @@ var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcA
             $scope.models = data;
         });
         $scope.trims.length = 0;
-        $scope.getCars();
+        //$scope.getCars();
     };
 
     $scope.getTrims = function () {
@@ -51,14 +51,14 @@ var carController = ('ctrAppCar', ['$scope', 'svcAppCar', function ($scope, svcA
     $scope.getaCar = function () {
         svcAppCar.HCLCar($scope.selectedYear, $scope.selectedMake, $scope.selectedModel, $scope.selectedTrim).then(function (data) {
             $scope.car = data;
+            $scope.recallResults = angular.fromJson(data.Recalls);
+            // $scope.recallMessage = [angular.fromJson(data.Message)];
         });
     };
 
-    $scope.getCars = function () {
-        svcAppCar.HCLCars($scope.selectedYear, $scope.selectedMake, $scope.selectedModel, $scope.selectedTrim).then(function (data) {
-            $scope.cars = data;
-        });
-    };
-
-    app.controller('carController', carController);
+    // $scope.getCars = function () {
+    //     svcAppCar.HCLCars($scope.selectedYear, $scope.selectedMake, $scope.selectedModel, $scope.selectedTrim).then(function (data) {
+    //         $scope.cars = data;
+    //     });
+    // };
 }]);
