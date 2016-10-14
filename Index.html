@@ -35,8 +35,9 @@
                         <div class="row">
                             <div class="col-md-12">
 <!--                                 <button class="btn btn-info" ng-click="getCars()">Get Car</button><br />           
- -->     
-                                <button class="btn btn-info" ng-click="getaCar()" ng-hide="selectedModel==''">Get Car</button><br />
+ -->                            <button class="btn btn-info" ng-click="getCars()" ng-show="selectedModel" ng-hide="selectedTrim">Get Cars</button><br />
+                                <button class="btn btn-info" ng-click="getaCar()" ng-show="selectedTrim">Get Car</button><br />
+
                             </div>
                         </div>
                         <p style="font-size:20px; color:black">{{selectedYear + " " + selectedMake  + " " + selectedModel   + " " + selectedTrim}} </p>
