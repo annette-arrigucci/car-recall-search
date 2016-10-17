@@ -63,6 +63,19 @@
         });
     };
 
+    $scope.getCarNoTrim = function () {
+        svcAppCar.HCLCarNoTrim($scope.selectedYear, $scope.selectedMake, $scope.selectedModel).then(function (data) {
+            $scope.car = data;
+            $scope.recallResults = angular.fromJson(data.Recalls);
+
+            // $scope.recallMessage = [angular.fromJson(data.Message)];
+        });
+    };
+
+    $scope.reloadPage = function(){
+        window.location.reload();
+    }
+
     // $scope.getCars = function () {
     //     svcAppCar.HCLCars($scope.selectedYear, $scope.selectedMake, $scope.selectedModel, $scope.selectedTrim).then(function (data) {
     //         $scope.cars = data;

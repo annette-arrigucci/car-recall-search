@@ -40,4 +40,12 @@ app.service('svcAppCar', ['$http', function ($http) {
             });
     };
 
+    this.HCLCarNoTrim = function (year, make, model) {
+        var options = { params: { year: year, make: make, model: model } };
+        return $http.get(baseUrl + '/api/Car/getCarNoTrim', options)
+            .then(function (response) {
+                return response.data;
+            });
+    };
+
 }]);
