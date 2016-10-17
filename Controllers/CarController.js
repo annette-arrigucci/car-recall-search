@@ -14,6 +14,8 @@
     $scope.makes = [];
     $scope.models = [];
     $scope.trims = [];
+    $scope.showTrims = false;
+    $scope.showButton = false;
     // $scope.cars = 'Acura';
 
 
@@ -39,12 +41,16 @@
             $scope.models = data;
         });
         $scope.trims.length = 0;
+        $scope.showButton = true;
         //$scope.getCars();
     };
 
     $scope.getTrims = function () {
         svcAppCar.HCLTrims($scope.selectedYear, $scope.selectedMake, $scope.selectedModel).then(function (data) {
             $scope.trims = data;
+            if($scope.trims.length > 1){
+                $scope.showTrims = true;
+            }
         });
     };
 
@@ -52,6 +58,7 @@
         svcAppCar.HCLCar($scope.selectedYear, $scope.selectedMake, $scope.selectedModel, $scope.selectedTrim).then(function (data) {
             $scope.car = data;
             $scope.recallResults = angular.fromJson(data.Recalls);
+
             // $scope.recallMessage = [angular.fromJson(data.Message)];
         });
     };
