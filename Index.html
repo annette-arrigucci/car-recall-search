@@ -18,6 +18,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
+                    <div id="dropdowns">
                         <div class="row">
                             <div class="col-sm-12">
                                 <select ng-model="selectedYear" ng-options="year for year in years" ng-change="getMakes()" class="form-control"><option value="" selected>Select a year...</option></select>
@@ -38,12 +39,15 @@
                                 <select ng-model="selectedTrim" ng-options="trim for trim in trims" ng-disabled="selectedModel==''" class="form-control"><option value="" disabled selected ng-hide="selectedTrim">Select a trim</option></select>
                             </div>
                         </div>
+                    </div>   
                         <div class="row">
                             <div class="col-md-12">
                                 <button class="btn btn-info" ng-click="getCarNoTrim()" ng-if="showButton" ng-hide="selectedTrim">Get Car</button>
                                 <button class="btn btn-info" ng-click="getaCar()" ng-show="selectedTrim">Get Car</button><br />
-                                <p>Car Finder is a project by Annette Arrigucci for Coder Foundry</p>
-                                <p><a href="http://aarrigucci.azurewebsites.net" target="_blank">View portfolio</a>
+                                <div id="about">
+                                    <p>Car Finder is a project by Annette Arrigucci for Coder Foundry</p>
+                                    <p><a href="http://aarrigucci.azurewebsites.net" target="_blank">View portfolio</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,7 +84,7 @@
                                 <div class="col-md-12">
                                     <br>
                                     Images obtained from Bing! search engine<br>
-                                    Recall information from NHTSA.gov
+                                    Recall information from <a href="http://www.nhtsa.gov" target="_blank">NHTSA.gov</a>
                                 </div>
                             </div>
                         </div>
