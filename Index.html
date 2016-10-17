@@ -14,7 +14,7 @@
                 <h2 class="text-center">Find a car's recall information</h2>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-md-offset-1">
                         <div class="row">
                             <div class="col-sm-12">
                                 <select ng-model="selectedYear" ng-options="year for year in years" ng-change="getMakes()" class="form-control"><option value="" selected>Select a year...</option></select>
@@ -40,13 +40,14 @@
 <!--                                 <button class="btn btn-info" ng-click="getCars()">Get Car</button><br />           
  -->                            <button class="btn btn-info" ng-click="getCarNoTrim()" ng-if="showButton" ng-hide="selectedTrim">Get Car</button><br />
                                 <button class="btn btn-info" ng-click="getaCar()" ng-show="selectedTrim">Get Car</button><br />
-
+                                <p>Car Finder is a project by Annette Arrigucci for Coder Foundry</p>
+                                <p><a href="http://aarrigucci.azurewebsites.net" target="_blank">View portfolio</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-9">
-                        <p style="font-size:20px; color:black">{{selectedYear + " " + selectedMake  + " " + selectedModel   + " " + selectedTrim}} </p>
+                    <div class="col-md-8">
+                        <h2>{{selectedYear + " " + selectedMake  + " " + selectedModel   + " " + selectedTrim}}</h2>
                         <div class="row" ng-if="car">
                             <div class="col-md-12">
                                 <div class="col-md-9">
@@ -55,7 +56,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <strong><h3 style="color:black" ng-show="hasNoRecalls">No recalls found</h3></strong>
                                  <strong><h3 style="color:black" ng-if="recallResults.Results">RECALLS</h3></strong>
                                     <div ng-repeat="result in recallResults.Results" style="color:black">
@@ -64,6 +65,7 @@
                                         <div><strong>Consequence: </strong> {{result.Conequence}}</div>
                                         <div><strong>Remedy: </strong>{{result.Remedy}}</div>
                                         <div><strong>Notes: </strong>{{result.Notes}}</div>
+                                        <br>
                                     </div>
                                 </div>                                    
                             </div>
@@ -72,11 +74,19 @@
                                     <button class="btn btn-info" ng-click="reloadPage()">New Search</button>
                                 </div>
                             </div>
+                            <div class="row" ng-if="car">
+                                <div class="col-md-12">
+                                    <br>
+                                    Images obtained from Bing! search engine<br>
+                                    Recall information from NHTSA.gov
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    
 
     <script src="https://code.jquery.com/jquery-1.10.2.js" integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo=" crossorigin="anonymous"></script>
     <script src="Scripts/jquery-ui.min.js"></script>
@@ -90,7 +100,6 @@
     <script src="Car.js"></script>
     <script src="Controllers/CarController.js"></script>
     <script src="Services/CarServices.js"></script> 
-    <script src="Scripts/ui-bootstrap-2.1.4.js"></script>
-    
+    <script src="Scripts/ui-bootstrap-2.1.4.js"></script>  
 </body>
 </html>
