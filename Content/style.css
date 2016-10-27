@@ -51,11 +51,11 @@ body {
 
 .footer { 
     height: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .container{
-	min-height: calc(100vh - 70px);
+	min-height: calc(100vh - 60px);
 }
 
 .btn {
