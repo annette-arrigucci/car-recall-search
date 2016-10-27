@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <title></title>
+    <title>Car Finder</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/style.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:bold' rel='stylesheet' type='text/css'>
@@ -12,9 +13,11 @@
     <div ng-app="appCar">
         <div ng-controller="ctrAppCar">
             <div class="container">
-            <div class="row header">
-                <h1 class="text-center">Car Finder</h1>
-                <h2 class="text-center">Find a car's recall information</h2>
+            <div class="row">
+                <div class="header">
+                    <h1 class="text-center">Car Finder</h1>
+                    <h2 class="text-center">Find a car's recall information</h2>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
@@ -83,7 +86,7 @@
                             <div class="row" ng-if="car">
                                 <div class="col-md-12">
                                     <br>
-                                    Images obtained from Bing! search engine<br>
+                                    Images obtained from Bing search engine<br>
                                     Recall information from <a href="http://www.nhtsa.gov" target="_blank">NHTSA.gov</a>
                                 </div>
                             </div>
