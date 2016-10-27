@@ -8,12 +8,17 @@
 
     #dropdowns{
     	margin-right: 15px;
+    	margin-left: 15px;
     }
     body{
     	font-size: 18px !important;
     }
 	.form-control{
 		font-size: 18px !important;
+	}
+	#results{
+		margin-right: 15px;
+    	margin-left: 15px;
 	}
 }
 
@@ -42,5 +47,19 @@ body {
 
 #about {
 	margin-top: 20px;
+}
+
+.footer { 
+    height: 50px;
+    margin-top: 20px;
+}
+
+.container{
+	min-height: calc(100vh - 70px);
+}
+
+.btn {
+	margin-top: 15px;
+	font-size: 18px;
 }
 

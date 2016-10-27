@@ -13,12 +13,12 @@
     <div ng-app="appCar">
         <div ng-controller="ctrAppCar">
             <div class="container">
-            <div class="row">
+   <!--          <div class="row"> -->
                 <div class="header">
                     <h1 class="text-center">Car Finder</h1>
                     <h2 class="text-center">Find a car's recall information</h2>
                 </div>
-            </div>
+<!--             </div> -->
             <div class="row">
                 <div class="col-md-3 col-md-offset-1">
                     <div id="dropdowns">
@@ -42,7 +42,6 @@
                                 <select ng-model="selectedTrim" ng-options="trim for trim in trims" ng-disabled="selectedModel==''" class="form-control"><option value="" disabled selected ng-hide="selectedTrim">Select a trim</option></select>
                             </div>
                         </div>
-                    </div>   
                         <div class="row">
                             <div class="col-md-12">
                                 <button class="btn btn-info" ng-click="getCarNoTrim()" ng-if="showButton" ng-hide="selectedTrim">Get Car</button>
@@ -53,8 +52,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>   
+                        
                     </div>
-
+                <div id="results">
                     <div class="col-md-8">
                         <h2>{{selectedYear + " " + selectedMake  + " " + selectedModel   + " " + selectedTrim}}</h2>
                         <div class="row" ng-if="car">
@@ -91,11 +92,20 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class ="row">
+                        <div class="col-md-11"> 
+                            <footer class="footer">
+                                Copyright 2016
+                            </footer>
+                        <div>
                     </div>
                 </div>
             </div>
         </div>
-    
+
 
     <script src="https://code.jquery.com/jquery-1.10.2.js" integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo=" crossorigin="anonymous"></script>
     <script src="Scripts/jquery-ui.min.js"></script>
