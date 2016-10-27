@@ -9,6 +9,12 @@
     #dropdowns{
     	margin-right: 15px;
     }
+    body{
+    	font-size: 18px !important;
+    }
+	.form-control{
+		font-size: 18px !important;
+	}
 }
 
 h1 {
